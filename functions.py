@@ -1,6 +1,6 @@
 def prompt_input_options(option_list):
     # Use when a user must select an option
-    valid_list = [str(x+1) for x in range(len(option_list))]
+    valid_list = [x+1 for x in range(len(option_list))]
     
     i = 0
     for option in option_list:
@@ -9,7 +9,8 @@ def prompt_input_options(option_list):
 
     while True:
         try:
-            value = input('Select an option: ').strip().upper()
+            # value = input('Select an option: ').strip().upper()
+            value = int(input('Select an option: '))
         except ValueError:
             print('Please enter a valid option.')
             continue
@@ -20,4 +21,6 @@ def prompt_input_options(option_list):
         else:
             break
 
-    return value
+    user_choice = option_list[value-1]
+    
+    return user_choice
