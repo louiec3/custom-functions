@@ -1,3 +1,21 @@
+def prompt_input(prompt):
+    # Used when any value is needed from user
+    while True:
+        try:
+            value = input(prompt).strip()
+        except ValueError:
+            print('Please enter a value.')
+            continue
+
+        if value is None or value == '':
+            print('Please enter a value.')
+            continue
+        else:
+            break
+
+    return value
+
+
 def prompt_input_options(option_list):
     # Use when a user must select an option
     valid_list = [x+1 for x in range(len(option_list))]
